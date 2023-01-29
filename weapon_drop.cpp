@@ -67,5 +67,3 @@ weapon thief_drop(weapon_drop drop_func)
     }
     return return_weapon;
 }
-
-
