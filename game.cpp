@@ -12,7 +12,7 @@ int main()
     std::cin >> player_name;
     player.set_name(player_name);
 
-    //Convo with greeting villager
+    // Convo with greeting villager
     animate("Ah."); animate("Nice to meet you ",1); animate(player.get_name());
     animate("Well I'll be glad to show you around our humble...");
     animate("Huh?");
@@ -21,14 +21,12 @@ int main()
     // Thief battle
     weapon rusty_knife = weapon(1,0,"a rusty knife");
     character thief = character(15,1,"Thief",rusty_knife);
-    thief.set_dropped_weapon(drop,thief_drop);
+    thief.set_dropped_weapon(drop, thief_drop);
     battle thief_battle = battle();
     thief_battle.battle_func(player,thief);
     thief_battle.~battle();
     rusty_knife.~weapon();
     thief.~character();
     
-
-
     return 0;
 }

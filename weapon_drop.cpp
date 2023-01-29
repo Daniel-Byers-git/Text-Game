@@ -26,8 +26,8 @@ struct weapon_drop
     }
     int drop_rate[20];
 };
-int droprates[] = {0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,3};
-weapon_drop drop = weapon_drop(droprates); // ! "drop" is the weapon_drop to be called in EVERY weapon drop of an enemy
+int default_droprates[] = {0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,3};
+weapon_drop drop = weapon_drop(default_droprates); // ! "drop" is the weapon_drop to be called in EVERY weapon drop of an enemy
 
 // Weapon Constructor
 // weapon(damage, rarity, name)
@@ -50,27 +50,15 @@ weapon thief_drop(weapon_drop drop_func)
     {
         case 0:
             return_weapon = rusty_knife;
-            knife.~weapon();
-            dagger.~weapon();
-            thiefs_blade.~weapon();
             break;
         case 1:
             return_weapon = knife;
-            rusty_knife.~weapon();
-            dagger.~weapon();
-            thiefs_blade.~weapon();
             break;
         case 2:
             return_weapon = dagger;
-            knife.~weapon();
-            rusty_knife.~weapon();
-            thiefs_blade.~weapon();
             break;
         case 3:
             return_weapon = thiefs_blade;
-            knife.~weapon();
-            dagger.~weapon();
-            rusty_knife.~weapon();
             drop_func.set_drop_rate(thief_blade_drop);
             break;
         default:

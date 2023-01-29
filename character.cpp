@@ -15,7 +15,7 @@ struct character
         weapon get_eq_weapon();
         void set_dropped_weapon(weapon_drop the_drop_func, std::function<weapon(weapon_drop)> weapon_drop_func);
         weapon get_dropped_weapon();
-        ~character();
+        ~character(){}
     private:
         int health;
         int level;
@@ -75,9 +75,10 @@ weapon character::get_eq_weapon()
     return eq_weapon;
 }
 
-void character::set_dropped_weapon(weapon_drop the_drop_func, std::function<weapon(weapon_drop)> weapon_drop_func)
+
+void character::set_dropped_weapon(weapon_drop the_drop_rate, std::function<weapon(weapon_drop)> weapon_drop_func)
 {
-    dropped_weapon =  weapon_drop_func(the_drop_func);
+    dropped_weapon =  weapon_drop_func(the_drop_rate);
 }
 
 weapon character::get_dropped_weapon()
@@ -85,7 +86,4 @@ weapon character::get_dropped_weapon()
     return dropped_weapon;
 }
 
-character::~character()
-{
-    
-}
+
